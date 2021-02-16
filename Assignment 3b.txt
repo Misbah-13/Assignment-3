@@ -1,0 +1,88 @@
+var products = [
+
+{
+   id:1,
+   name:"Apple",
+   price:30,
+   category:"Fruits",
+   color:"red",
+   quantity:45
+},
+
+{
+   id:2,
+   name:"Cauliflower",
+   price:34,
+   category:"veggies",
+   color:"green & white",
+   quantity:78
+},
+
+{
+   id:3,
+   name:"Chicken",
+   price:200,
+   category:"non-veg",
+   color:"red",
+   quantity:34
+},
+
+{
+   id:4,
+   name:"Kiwi",
+   price:100,
+   category:"fruits",
+   color:"green",
+   quantity:54
+}
+
+
+];
+
+
+function display(data)
+{
+
+var rows = "";
+
+for(var i=0; i<data.length; i++)
+{
+
+rows = rows + `
+		<tr>
+		<td>${data[i].id}</td>
+		<td>${data[i].name}</td>
+		<td>${data[i].price}</td>
+		<td>${data[i].category}</td>
+		<td>${data[i].color}</td>
+		<td>${data[i].quantity}</td>
+		</tr>
+              `
+}
+
+var tbody = document.getElementById("tab-data");
+tbody.innerHTML = rows;
+
+}
+
+display(products);
+
+
+function searchByName()
+{
+  var searchName = document.getElementById("searchName");
+  var searchValue = searchName.value;
+  var newProducts=[];
+
+  
+for(var i=0; i<products.length; i++)
+{
+   if(products[i].name.toUpperCase().includes(searchValue.toUpperCase()) === true)
+   {
+	newProducts.push(products[i]);
+   }
+}
+
+display(newProducts);
+
+}
